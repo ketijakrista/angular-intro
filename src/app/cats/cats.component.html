@@ -1,0 +1,19 @@
+<input type="text" [(ngModel)]="newCatname" />
+<button
+  [disabled]="!newCatname"
+  type="button"
+  class="btn btn-primary"
+  (click)="addCat()"
+>
+  Add new cat
+</button>
+<p>newCatName value: {{ newCatname }}</p>
+
+<h3>ngFor</h3>
+<div *ngFor="let cat of cats; let i = index">
+  {{ cat + i }}
+</div>
+
+<div class="cat-container">
+  <app-cat-card *ngFor="let cat of cats; let i= index" [cat]="cat" (catDeletion)="removeCat(i)"></app-cat-card>
+</div>

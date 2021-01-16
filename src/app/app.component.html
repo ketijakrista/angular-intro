@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <hr />
+
+  <h3>String interpolation</h3>
+  <p>Description: {{ description }}</p>
+  <p>{{ "Description " + description }}</p>
+  <p>My name is {{ author.name }}</p>
+
+  <hr />
+
+  <h3>Event binding</h3>
+  <p>My name is {{ author.name }}</p>
+  <button (click)="changeName()" type="button" class="btn btn-primary">
+    Change name to Krista
+  </button>
+
+  <hr />
+
+  <h3>Property binding</h3>
+  <input class="form-control mb-2" type="text" [disabled]="inputDisabled" />
+  <button (click)="inputDisabled = !inputDisabled" class="btn btn-warning">
+    Toggle disabled
+  </button>
+
+  <hr />
+  <h3>ngIf</h3>
+  <div *ngIf="inputDisabled; else elseBlock" class="alert alert-warning">
+    Input is disabled!
+  </div>
+  <ng-template #elseBlock>Else content</ng-template>
+
+  <hr/>
+  <h3>Two way data binding</h3>
+  <app-cats></app-cats>
+</div>
